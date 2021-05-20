@@ -1,44 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# React Tesla Clone App
 
-## Available Scripts
+## Telsa Clone App built to demonstate skills with ReactJS
 
-In the project directory, you can run:
+```
+npx create-react-app <name of folder> --template redux
+```
+**--template redux** used to add redux store.js to file
 
-### `yarn start`
+## Tools
+* [ReactJS](https://reactjs.org/)
+* [Redux](https://react-redux.js.org/)
+* [Styled Components](https://styled-components.com/)
+* [React Reveal](https://www.react-reveal.com/)
+* [Netlify](https://app.netlify.com/) - used for hosting
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React useState
+```
+const [burgerStatus, setBurgerStatus] = useState(false)
+```
+Returns a stateful value, and a function to update it.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+During the initial render, the returned state (<mark>state</mark>) is the same as the value passed as the first argument (<mark>initialState</mark>).
 
-### `yarn test`
+The setState function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+setBurgerStatus(newState)
+```
+Used to show side menu
 
-### `yarn build`
+## Styled Components
+```
+npm install --save styled-components
+```
+`styled-components` utilises tagged template literals to style your components.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It removes the mapping between components and styles. This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+// Create a Title component that'll render an <h1> tag with some styles
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+// Create a Wrapper component that'll render a <section> tag with some styles
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`;
 
-### `yarn eject`
+// Use Title and Wrapper like any other React component – except they're styled!
+render(
+  <Wrapper>
+    <Title>
+      Hello World!
+    </Title>
+  </Wrapper>
+);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## React Reveal
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[React Reveal](https://www.react-reveal.com/) is an animation framework for React. It's MIT licensed, has a tiny footprint and written specifically for React in ES6. It can be used to create various cool reveal on scroll animations in your application. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm install react-reveal --save
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Import effects from React Reveal to your project. Lets try Zoom effect first:
 
-## Learn More
+```
+import Zoom from 'react-reveal/Zoom';
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Place the following code somewhere in your render method:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+<Zoom>
+  <p>Markup that will be revealed on scroll</p>
+</Zoom>
+```
+
+You should see zooming animation that reveals text inside the tag. You can change this text to any JSX you want. If you place this code further down the page you'll see that it'd appear as you scroll down.
