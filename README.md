@@ -1,6 +1,6 @@
 # React Tesla Clone App
 
-## Telsa Clone App built to demonstate skills with ReactJS
+## Tesla Clone App built to demonstate skills with ReactJS
 
 ```
 npx create-react-app <name of folder> --template redux
